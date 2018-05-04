@@ -14,6 +14,7 @@ This repo is designed to be a simple starting point for infrastructure-as-code p
 
 We use `terragrunt` as an optional wrapper for `terraform`.  The two are used interchangably here.  If you've used the default key name and path (described [above](/docs/getting_set_up.md)), then to see what terraform plans to build out in the default region (eu-west-2):
 ```
+cd terraform/
 terragrunt plan
 ```
 
@@ -23,7 +24,6 @@ terragrunt apply
 ```
 
 Look at what you've created in the AWS console!
-
 
 Shutting down
 -------------
@@ -100,6 +100,18 @@ We've taken the same simple approach to documentation.  It's all in markdown-for
   * [AWS permissions [.md]](/docs/aws_permissions.md)
   * [Remote provisioning [.md]](/docs/remote_provisioning.md)
 * [Complete: Provisioned environment [.md]](/docs/provisioned_environment.md) - details of all the hosts created by workstream
+
+Playspace
+---------
+
+Once you've built (and destroyed) a bunch of machines using the example (root terraform module), you might like to start hacking around your own manifest.  [/playspace](/playspace) is a basic template that gives you a starting point for your own experiments.  The root module in playspace (main.tf) is set up with terragrunt to access all the other terraform modules, so you can cut-and-paste sections of the [examples main.tf](/terraform/main.tf), then run:
+
+```
+cd playspace/
+terragrunt plan
+terragrunt apply
+terragrunt destroy
+```
 
 Version 2.0
 -------
