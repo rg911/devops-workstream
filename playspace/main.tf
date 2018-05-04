@@ -9,6 +9,6 @@ module "aws_background" {
   source = "./aws_background"
   aws_region = "${var.aws_region}"
   key_name = "${var.key_name}"
-  bastion_ssh_port = "${var.bastion_ssh_port}"
+  # bastion_ssh_port = "${var.bastion_ssh_port}"
 }
 
